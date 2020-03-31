@@ -1,0 +1,40 @@
+﻿# Announcing dual-screen preview SDKs and Microsoft 365 Developer Day
+In November, we shared our vision for dual-screen devices and how this new device category will help people get more done on smaller and more mobile form factors. Today, we are excited to give you an update on how you can get started and optimize for dual-screen devices by:
+
+1. Exploring preview SDKs and standards proposals for apps and websites
+2. Embracing dual-screen experiences
+3. Learning more at Microsoft 365 Developer Day
+
+# 1) Exploring preview SDKs and standards proposals for apps and websites
+We are happy to announce the availability of the preview SDK for Microsoft Surface Duo, and availability in the coming weeks for the preview SDK for Windows 10. We are also excited to announce new web standards proposals to enable dual-screen experiences for websites and PWAs on both Android and Windows 10X. These new web standards proposals will provide you with the capabilities and tools you need for dual-screen devices.
+#Download the preview SDK for Microsoft Surface Duo
+Today, developers can download the preview SDK for Surface Duo, access [documentation and samples](https://docs.microsoft.com/dual-screen) for best practices, see UX design patterns, and more. The preview SDK gives developers a first look at how you can take advantage of dual-screen experiences.
+This includes:
+- **Native Java APIs** to support dual-screen development for the Surface Duo device, including the DisplayMask API, Hinge Angle Sensor, and new device capabilities.
+- An **Android Emulator with a preview Surface Duo** image that is integrated into Android Studio so you can test your app without a physical device. The emulator simulates postures, gestures, hinge angle, mimicking the seam between the two screens, and more. We’ll continue to add functionality over time.
+- **Requirements:** For the [Android Studio](https://developer.android.com/studio#Requirements) and [Android Emulator](https://developer.android.com/studio/run/emulator#requirements).
+We will have more announcements and discussion in the coming months and look forward to hearing your [feedback](https://aka.ms/SurfaceDuoDevelopers).
+![The Android Emulator with a preview Surface Duo image](https://46c4ts1tskv22sdav81j9c69-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/3/2020/01/e6de7ecdc1586f5ecf1d7965f9e72b14.png)
+#An early look at developing for Windows 10X
+In the coming weeks, developers will have access to a pre-release version of the Windows SDK through the standard Insider builds. Our intent is to provide you with the Microsoft® Emulator on February 11th as well as new APIs for dual-screen support, documentation, and code samples.
+This includes:
+- **Native Windows APIs** for dual-screen development to enable your app to span the two screens, detect the hinge position, and take advantage of Windows 10X.
+- **Microsoft Emulator** is a dual-screen Hyper-V emulator so you can deploy your existing Universal Windows Platform (UWP) and Win32 apps and test in both single-and dual-screen scenarios. The emulator simulates the physical device so you can see how your apps interact with Windows 10X.
+- **Requirements:** A recent Windows Insiders preview build of 64-bit Windows 10 (Pro, Enterprise, or Education), 64bit CPU with 4 cores, 8GB minimum (16GB of RAM recommended), Hyper-V enabled and dedicated GPU that supports Direct X 11.0 or later.
+![Microsoft Emulator showing Windows 10X](https://46c4ts1tskv22sdav81j9c69-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/3/2020/01/9ce218d19263caa75849265712631b33.png)
+
+#Build dual-screen experiences on the web
+The new Microsoft Edge released last week, provides a powerful and compatible foundation for website and web app experiences across devices, powered by Chromium. We are actively incubating new capabilities that enable web content to provide a great experience on dual-screen devices, whether it’s running in the browser or installed as an app.
+- **New web standards for dual-screen layout:** We are proposing [CSS primitives for dual-screen layouts and a JavaScript Window Segments Enumeration API](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2FMicrosoftEdge%2FMSEdgeExplainers%2Fblob%2Fmaster%2FFoldables%2Fexplainer.md&data=04%7C01%7Ckypflug%40microsoft.com%7Ca81c625a60394d68a45d08d79303de98%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637139517166062698%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C-1&sdata=ptQowDyfUm0sspfH4VAtpxvml0ojx7BkE4CmL3FDryw%3D&reserved=0) to provide web platform primitives for web developers to detect multiple displays and lay out content across them. We expect to provide an experimental implementation of these features in preview builds of the browser soon.
+- **Dual-screen polyfills:** As the above features progress through the web standards process, we’ve published polyfills that you can write against as you begin to explore dual-screen development. You can find the polyfills and associated documentation at: 
+1. The [JavaScript Window Segments enumeration polyfill enumerates segments](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fzouhir%2Fwindowsegments-polyfill&data=04%7C01%7Ckypflug%40microsoft.com%7Ca81c625a60394d68a45d08d79303de98%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637139517166082692%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C-1&sdata=LkJxWgoeUB%2B5oJoT7a6QYHKWJUanz6O1yvTMkZIXp6w%3D&reserved=0) (regions on separate displays) where logically separate pieces of content can be placed.
+2. The [CSS ‘spanning’ media feature polyfill](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fzouhir%2Fspanning-css-polyfill&data=04%7C01%7Ckypflug%40microsoft.com%7Ca81c625a60394d68a45d08d79303de98%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637139517166072696%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C-1&sdata=F%2B8ftHfzmB%2BUglYNPlUAMNFBQD%2BMsYhBQJn0zxo%2BHoE%3D&reserved=0) allows you to lay out content in a window that spans multiple displays.
+- **Progressive Web Apps** are supported out of the box in the new Microsoft Edge, which can be installed directly from the browser on Windows 10X and Android. PWAs will support the same dual-screen layout features and tools as the browser.
+We’ll have more to share about building for dual-screen devices with web technologies over the coming months – watch the Microsoft Edge blog for more details.
+
+#2) Embracing dual-screen experiences
+Dual-screen devices creates an opportunity for your apps to delight people in a new and innovative way. To help you get started, we are providing you with basic support checklists for touch and pen and drag and drop and initial app pattern ideas to ensure your apps work great on dual-screen devices.
+
+![Dual-screen app patterns](https://46c4ts1tskv22sdav81j9c69-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/3/2020/01/009d36fe68b05c64df589fffb97fea91.png)
+Your app by default will occupy a single screen, but users can span the app to cover both screens when the device is in a double-portrait or double-landscape layout. You can programmatically enable full-screen mode for your app at any time, but spanning is limited to user activity for now.
+![Dual-screen orientation and layout.](https://46c4ts1tskv22sdav81j9c69-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/3/2020/01/6acde203556eb19dff944272c420946b.png)

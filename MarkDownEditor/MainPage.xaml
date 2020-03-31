@@ -1,0 +1,110 @@
+﻿<Page
+    x:Class="MarkDownEditor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MarkDownEditor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:winuicontrols="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)" 
+    Loaded="Page_Loaded">
+    
+    <Page.Resources>
+		<converters:ToolbarFormatActiveConverter x:Key="IsFormatMarkdown"
+                    Format="MarkDown" />
+	</Page.Resources>
+    
+	<Grid x:Name="MainGrid" Margin="12">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+        
+        <!-- This TextToolbar is used to insert Markdown tags into the EditZome RichEditBox. -->
+		<controls:TextToolbar x:Name="Toolbar"
+                          Editor="{Binding ElementName=EditZone}"
+                          IsEnabled="True"
+                          Format="MarkDown"
+                          UseURIChecker="True"
+                          Background="#4C4F4F4F" />
+        
+		<!--Pane 1 and Pane 2 take up 50% each of the available real-estate  by setting pane length to 1* Grid length. 
+            In tall mode, To show the markdowneditor(pane1) at the bottom, tall mode is set to BottomTop -->
+		<winuicontrols:TwoPaneView x:Name="twoPaneViewDemo" x:FieldModifier="public" 
+                 Pane1Length="1*"
+                 Pane2Length="1*"
+                 MinTallModeHeight="500"
+                 MinWideModeWidth="700"
+                 TallModeConfiguration="BottomTop"
+                 WideModeConfiguration="LeftRight" 
+                 Grid.Row="1">
+            
+            <!-- This is the Editor pane where Markdown is entered and edited. -->
+			<winuicontrols:TwoPaneView.Pane1>
+				<Grid x:Name="MarkDownEditor"
+                    Grid.Row="1"
+                    Margin="0, 16"
+                    Visibility="{Binding Format, ElementName=Toolbar, Mode=OneWay, Converter={StaticResource IsFormatMarkdown}}">
+                    
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+                    
+					<TextBlock Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}"
+                     Style="{StaticResource SubtitleTextBlockStyle}"
+                     Text="MarkDown Editor" />
+                    
+					<ScrollViewer x:Name="Editor" ViewChanged="MarkEditor_ViewChanged" Grid.Row="1">
+						<RichEditBox x:Name="EditZone"                     
+                         Margin="0, 4, 10, 0"
+                         PlaceholderText="Enter Text Here"
+                         TextWrapping="Wrap"
+                         TextChanged="EditZone_TextChanged"
+                         VerticalContentAlignment="Stretch"
+                         Padding="10,3"
+                         BorderThickness="1"
+                         BorderBrush="{ThemeResource SystemControlForegroundChromeHighBrush}"
+                         Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                         contract7Present:SelectionFlyout="{x:Null}"/>
+					</ScrollViewer>
+				</Grid>
+			</winuicontrols:TwoPaneView.Pane1>
+            
+            <!-- This is the Markdown display pane.  -->
+			<winuicontrols:TwoPaneView.Pane2>
+
+				<Grid x:Name="MarkDownPreview"
+                  Grid.Row="1"
+                  Margin="0, 16"
+                  Visibility="{Binding Format, ElementName=Toolbar, Mode=OneWay, Converter={StaticResource IsFormatMarkdown}}">
+                    
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+                    
+					<TextBlock Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}"
+                     Style="{StaticResource SubtitleTextBlockStyle}" 
+                     Text="MarkDown Preview"  Margin="10, 0, 0, 0" />
+					<ScrollViewer x:Name="MarkEditor" ViewChanged="MarkEditor_ViewChanged" Grid.Row="1">
+						<controls:MarkdownTextBlock x:Name="Previewer"
+                                      Background="LightGray"
+                                      Padding="10,3"
+                                      Margin="10, 4, 0, 0"
+                                      Canvas.ZIndex="99"
+                                      BorderThickness="1"
+                                      BorderBrush="{ThemeResource SystemControlForegroundChromeHighBrush}"
+                                      Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}"
+                                      ScrollViewer.IsVerticalRailEnabled="False" />
+					</ScrollViewer>
+				</Grid>                
+			</winuicontrols:TwoPaneView.Pane2>  
+            
+		</winuicontrols:TwoPaneView>
+	</Grid>
+</Page>
