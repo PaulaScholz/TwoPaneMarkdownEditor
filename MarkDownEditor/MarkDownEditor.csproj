@@ -218,7 +218,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MarkDownEditor_TemporaryKey.pfx" />
-    <None Include="Readme.md" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
