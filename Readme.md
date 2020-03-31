@@ -4,7 +4,7 @@
 
 ## Introduction
 
-![TwoPaneMarkdownEditor](ReadmeImages/MarkdownEditor.gif)
+![TwoPaneMarkdownEditor](/ReadmeImages/MarkdownEditor.gif)
 
 A Universal Windows Platform sample that illustrates the [TwoPaneView](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/two-pane-view) layout control for [Dual-Screen experiences](https://docs.microsoft.com/en-us/dual-screen/introduction), 
 
@@ -50,7 +50,7 @@ You should follow this [guidance](https://docs.microsoft.com/en-us/dual-screen/w
 
 The Visual Studio Solution is shown below:
 
-![VisualStudioSolution](ReadmeImages/MarkdownEditorVisualStudioSolution.png)
+![VisualStudioSolution](/ReadmeImages/MarkdownEditorVisualStudioSolution.png)
 
 `MainPage.xaml` contains the single Page and `TwoPaneView` control and serves as the core of the project.  
 
@@ -61,7 +61,7 @@ The primary display layout panel for our application is [TwoPaneView](https://do
 
 `MainPage.xaml` is the single page in our solution.  On application startup, it appears like this:
 
-![MainPage](ReadmeImages/MarkdownEditorSingleScreen.png)
+![MainPage](/ReadmeImages/MarkdownEditorSingleScreen.png)
 
 At the top of the page, we see a [TextToolbar XAML Control](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/texttoolbar) from the [Windows Community Toolkit](https://docs.microsoft.com/en-us/windows/communitytoolkit/).  This control works in conjunction with the [RichEditBox control](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) of the `Windows SDK` to insert `Markdown` tags into the text.
 
@@ -71,7 +71,7 @@ Finally, we have `Pane1` of the `TwoPaneView` control, which contains our [RichE
 
 When the user spans this application across screens, the panes are displayed like this:
 
-![MainPage Spanned](ReadmeImages/MarkdownEditorSpanned.png)
+![MainPage Spanned](/ReadmeImages/MarkdownEditorSpanned.png)
 
 `Pane1` appears on the left-hand screen, and `Pane2` appears on the right.  The scrollbars of each pane are tied together in the code-behind to enable synchronous scrolling.
 
