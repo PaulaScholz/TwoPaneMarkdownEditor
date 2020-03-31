@@ -255,12 +255,32 @@ public sealed partial class MainPage : Page
 		/// <param name="e"></param>
 		private async void Page_Loaded(object sender, RoutedEventArgs e)
 		{
-			StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///sample.txt"));
-			Windows.Storage.Streams.IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-			EditZone.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, fileStream);
+
+			if (Previewer != null)
+			{
+				Previewer.LinkClicked += Previewer_LinkClicked;
+				Previewer.ImageClicked += Previewer_ImageClicked;
+				Previewer.CodeBlockResolving += Previewer_CodeBlockResolving;
+			}
+
+			// Load the initial demo data from the file.  Make sure the file properties are set to 
+			// Build Action - Content and Copy to Output Directory - Always
+			try
+			{
+				StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///sample.txt"));
+				Windows.Storage.Streams.IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+				EditZone.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, fileStream);
+			}
+			catch (Exception)
+			{
+				if (EditZone != null)
+				{
+					EditZone.TextDocument.SetText(TextSetOptions.None, "## Error Loading Content ##");
+				}
+			}
+
 		}
 	}
-
 ```
 
 Of particular note is the `MarkdownEditor_ViewChanged` event handler. We have used the [#pragma warning](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) compiler pre-processor directive to suppress warning messages for the use of deprecated `ScrollViewer` [ScrollToVerticalOffset](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.scrollviewer.scrolltoverticaloffset) and [ScrollToHorizontalOffset](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.scrollviewer.scrolltohorizontaloffset) methods. These methods, while deprecated, provide superior performance over the new [ChangeView](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.scrollviewer.changeview#Windows_UI_Xaml_Controls_ScrollViewer_ChangeView_Windows_Foundation_IReference_System_Double__Windows_Foundation_IReference_System_Double__Windows_Foundation_IReference_System_Single__) method. `ChangeView` provides jumpy performance under the current implementation.  The deprecated methods may be removed in a future update.
