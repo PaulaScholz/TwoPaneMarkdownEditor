@@ -32,8 +32,8 @@
                           UseURIChecker="True"
                           Background="#4C4F4F4F" />
         
-		<!--Pane 1 and Pane 2 take up 50% each of the available real-estate  by setting pane length to 1* Grid length. 
-            In tall mode, To show the markdowneditor(pane1) at the bottom, tall mode is set to BottomTop -->
+		<!--Pane 1 and Pane 2 take up 50% each of the available real-estate by setting pane length to 1* Grid length. 
+            In tall mode, To show the markdowneditor (pane1) at the bottom, tall mode is set to BottomTop -->
 		<winuicontrols:TwoPaneView x:Name="twoPaneViewDemo" x:FieldModifier="public" 
                  Pane1Length="1*"
                  Pane2Length="1*"
